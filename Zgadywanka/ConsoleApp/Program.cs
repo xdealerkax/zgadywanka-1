@@ -14,30 +14,38 @@ namespace ConsoleApp
             Console.WriteLine(wylosowana);
             Console.WriteLine("Wylosowałem liczbę od 1 do 100.\nOdgadnij ją!");
 
-            // 2. Człowiek proponuje
-            Console.Write("Podaj swoją propozycję: ");
-            int propozycja = int.Parse( Console.ReadLine() );
 
-            // 3. Komputer ocenia
-            if( propozycja < wylosowana )
+            bool odgadniete = false;
+            // dopóki nie odgadnięte
+            while ( !odgadniete )
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Za mało");
-                Console.ResetColor();
-            }
-            else if( propozycja > wylosowana )
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Za dużo");
-                Console.ResetColor();
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Trafiono");
-                Console.ResetColor();
+                // 2. Człowiek proponuje
+                Console.Write("Podaj swoją propozycję: ");
+                int propozycja = int.Parse(Console.ReadLine());
+
+                // 3. Komputer ocenia
+                if (propozycja < wylosowana)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Za mało");
+                    Console.ResetColor();
+                }
+                else if (propozycja > wylosowana)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Za dużo");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Trafiono");
+                    Console.ResetColor();
+                    odgadniete = true;
+                }
             }
 
+            Console.WriteLine("Koniec gry");
         }
     }
 }
