@@ -6,14 +6,17 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Gra za duzo aza mało");
+            Console.WriteLine("Gra za duzo za mało");
 
             // 1. Komputer losuje
-            Random los = new Random(); // tworzę obiekt typu Random
+            #region losowanie
+            var los = new Random(); // tworzę obiekt typu Random
             int wylosowana = los.Next(1, 101);
+#if DEBUG
             Console.WriteLine(wylosowana);
+#endif
             Console.WriteLine("Wylosowałem liczbę od 1 do 100.\nOdgadnij ją!");
-
+            #endregion
 
             bool odgadniete = false;
             // dopóki nie odgadnięte
